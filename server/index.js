@@ -23,13 +23,13 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(morgan("tiny"));
 
 /** HTTP GET request */
-app.get(/^(?!\/api).+/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-});
-
-// app.get("/", (req, res) => {
-//   res.status(200).json("HOME Page");
+// app.get(/^(?!\/api).+/, (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 // });
+
+app.get("/", (req, res) => {
+  res.status(200).json("HOME Page");
+});
 
 const apiRouter = express.Router();
 app.use("/api", apiRouter);
