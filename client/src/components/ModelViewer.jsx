@@ -25,7 +25,7 @@ const ModelViewer = ({ url }) => {
       shadows
       dpr={[1, 2]}
       camera={{
-        fov: 30,
+        fov: 25,
         near: 0.1,
         far: 200,
         position: [4, 2, 6],
@@ -33,7 +33,7 @@ const ModelViewer = ({ url }) => {
       gl={{ preserveDrawingBuffer: true }}
     >
       <ambientLight intensity={1} />
-      <directionalLight position={[10, 10, 10]} intensity={1.5} />
+      <directionalLight position={[20, 10, 10]} intensity={1.5} />
       <Suspense fallback={"Loading..."}>
         <Model url={url} />
       </Suspense>
