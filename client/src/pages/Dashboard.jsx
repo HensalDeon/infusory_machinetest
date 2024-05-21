@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { uploadModel } from "../api/models";
 import { useMutation } from "react-query";
-
+import toast from "react-hot-toast";
 const Dashboard = () => {
     const [name, setName] = useState("");
     const [file, setFile] = useState(null);
-    const uploadMutation = useMutation((formData) => uploadModel(formData));
+    const uploadMutation = useMutation((formData) => uploadModel(formData), {
+        onSuccess: (data) => {
+            toast.success(data.message);
+        },
+        onError: (error) => {
+            toast.error(`Upload failed: ${error.message}`);
+        },
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,7 +22,6 @@ const Dashboard = () => {
 
         try {
             await uploadMutation.mutateAsync(formData);
-            console.log("Upload successful!");
         } catch (error) {
             console.error("Upload failed:", error);
         }
