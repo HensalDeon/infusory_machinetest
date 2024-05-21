@@ -1,3 +1,4 @@
+![image](https://github.com/HensalDeon/infusory_machinetest/assets/120702682/03ba7fe9-6f83-4e9b-93e3-7949ac665098)
 
 ## Getting Started
 
