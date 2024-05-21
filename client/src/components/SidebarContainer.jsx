@@ -6,7 +6,6 @@ const SidebarContainer = () => {
   const navigate = useNavigate();
   const [activeBar, setactiveBar] = useState("Jobs");
   const handleItemClick = (item, url) => {
-    console.log(url);
     setactiveBar(item);
     navigate(url);
   };

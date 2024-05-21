@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const Dashboard = () => {
     const [name, setName] = useState("");
     const [file, setFile] = useState(null);
-    const uploadMutation = useMutation((formData) => uploadModel(formData), {
+    const { mutateAsync, isLoading } = useMutation((formData) => uploadModel(formData), {
         onSuccess: (data) => {
             toast.success(data.message);
         },
@@ -19,11 +19,13 @@ const Dashboard = () => {
         const formData = new FormData();
         formData.append("name", name);
         formData.append("file", file);
-
+        const loadingToast = toast.loading(<b>Uploading...!</b>);
         try {
-            await uploadMutation.mutateAsync(formData);
+            await mutateAsync(formData);
         } catch (error) {
             console.error("Upload failed:", error);
+        } finally {
+            toast.dismiss(loadingToast);
         }
 
         setName("");
@@ -52,7 +54,11 @@ const Dashboard = () => {
                 <div>
                     <input type="file" accept=".glb" onChange={(e) => setFile(e.target.files[0])} required />
                 </div>
-                <button type="submit" className="rounded-full bg-secondary px-6 text-white py-2 w-fit">
+                <button
+                    type="submit"
+                    disabled={isLoading ? true : false}
+                    className="rounded-full bg-secondary px-6 text-white py-2 w-fit"
+                >
                     Upload
                 </button>
             </form>
