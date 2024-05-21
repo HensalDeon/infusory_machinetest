@@ -19,11 +19,17 @@ app.use(cors(
 app.use(express.json());
 // Serve static files from the uploads directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(morgan("tiny"));
 
-app.get("/", (req, res) => {
-  res.status(200).json("HOME Page");
+/** HTTP GET request */
+app.get(/^(?!\/api).+/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
+
+// app.get("/", (req, res) => {
+//   res.status(200).json("HOME Page");
+// });
 
 const apiRouter = express.Router();
 app.use("/api", apiRouter);
