@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors(
-  ["http://localhost:5173/"]
+  ["http://localhost:5173/", "https://infusory-machinetest.vercel.app"]
 ));
 app.use(express.json());
 // Serve static files from the uploads directory
