@@ -7,13 +7,13 @@ const Model = ({ url }) => {
     const modelRef = useRef();
     useFrame(() => {
         if (modelRef.current) {
-            modelRef.current.rotation.y += 0.01;
-            modelRef.current.rotation.x += 0.01;
+            modelRef.current.rotation.y += 0.001;
+            modelRef.current.rotation.x += 0.001;
         }
     });
     return (
         <mesh ref={modelRef}>
-            <primitive object={scene} scale={2.5} position-y={0} rotation-y={0} />
+            <primitive object={scene} position-y={0} rotation-y={0} />
         </mesh>
     );
 };
@@ -25,19 +25,19 @@ const ModelViewer = ({ url }) => {
             shadows
             dpr={[1, 2]}
             camera={{
-                fov: 45,
+                fov: 30,
                 near: 0.1,
                 far: 200,
-                position: [-4, 3, 6],
+                position: [4, 2, 6],
             }}
             gl={{ preserveDrawingBuffer: true }}
         >
             <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
+            <directionalLight position={[10, 10, 10]} intensity={1} />
             <Suspense fallback={"jsdjdb"}>
                 <Model url={url} />
             </Suspense>
-            <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} />
+            <OrbitControls enableZoom={false}/>
         </Canvas>
     );
 };
