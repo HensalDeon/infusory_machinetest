@@ -2,7 +2,7 @@ import Model from "../models/threeModel.js";
 import path from "path";
 export const getModels = async (req, res) => {
     try {
-        const models = await Model.find();
+        const models = await Model.find().sort({ createdAt: -1 });
         res.json(models);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -22,7 +22,7 @@ export const uploadModel = async (req, res) => {
 
     try {
         const savedModel = await newModel.save();
-        res.json(savedModel);
+        res.json({ savedModel, message: "File uploaded..!" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

@@ -5,7 +5,7 @@ import logo from "../assets/threejs.png";
 const SidebarContext = createContext();
 export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(
-    window.innerWidth < 1024 ? false : true
+    window.innerWidth < 1300 ? false : true
   );
   return (
     <aside className="h-screen w-fit fixed z-10">
