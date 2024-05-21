@@ -18,8 +18,17 @@ html {
 .app {
   @apply relative w-full overflow-y-auto;
 }
+.padding {
+    @apply sm:px-9 px-4;
+}
 .head-text {
   @apply xl:text-[10rem] md:text-[6rem] text-[4rem] xl:leading-[11rem] md:leading-[7rem] leading-[4rem] font-black text-black text-center;
+}
+.sub-head-text {
+  @apply xl:text-[6rem] md:text-[4rem] text-[2rem] xl:leading-[8rem] md:leading-[5rem] leading-[3rem] font-black text-black text-center;
+}
+.rounded-input {
+    @apply py-3 px-3 rounded-full bg-gray-200 bg-opacity-20 border-[#e1e1e1] border focus:outline-none w-full;
 }
 .glassmorphism {
   background: rgba(255, 255, 255, 0.25);

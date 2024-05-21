@@ -15,18 +15,18 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-primary">
+    <section className="bg-primary padding">
       <h1 className="head-text">3D Models</h1>
-      {models.map((model) => (
+      {models?.map((model) => (
         <div
           key={model._id}
-          className="flex flex-col justify-center items-center m-auto glassmorphism gap-6 h-screen"
+          className="flex flex-col justify-center items-center m-auto glassmorphism lg:h-screen h-[50vh] rounded-2xl md:py-8 my-6 lg:w-3/4"
         >
           <h2>{model.name}</h2>
           <ModelViewer url={`http://localhost:5050/${model.fileUrl}`} />
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

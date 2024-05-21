@@ -1,10 +1,12 @@
 import { ChevronLast, ChevronFirst } from "lucide-react";
 import { useContext, createContext, useState } from "react";
 import { FaUser } from "react-icons/fa";
-import  logo from '../assets/threejs.png';
+import logo from "../assets/threejs.png";
 const SidebarContext = createContext();
 export default function Sidebar({ children }) {
-  const [expanded, setExpanded] = useState(window.innerWidth < 1024 ? false : true);
+  const [expanded, setExpanded] = useState(
+    window.innerWidth < 1024 ? false : true
+  );
   return (
     <aside className="h-screen w-fit fixed z-10">
       <nav className="h-full flex flex-col bg-primary border-tertiary border-r shadow-tertiary shadow-xl">

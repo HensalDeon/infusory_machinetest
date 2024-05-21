@@ -3,7 +3,7 @@ import Main from "./pages/Main";
 
 const App = () => {
   return (
-    <div className="app">
+    <div className="app bg-primary">
       <Routes>
         <Route path="/" element={<Main location={"home"}/>} />
         <Route path="/dashboard" element={<Main location={"dashboard"}/>} />
