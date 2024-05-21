@@ -12,7 +12,7 @@
    ```bash
    git clone https://github.com/HensalDeon/infusory_machinetest.git
 
-2. Navigate to the project folder (Client):
+2. Navigate to the project folder (client):
    ```bash
    cd infusory_machinetest/client
 
@@ -20,7 +20,7 @@
    ```bash
    npm install
 
-4. Navigate to the project folder (Client):
+4. Navigate to the project folder (server):
    ```bash
    cd infusory_machinetest/server
 
@@ -28,11 +28,11 @@
    ```bash
    npm install
 
-4. Running the Application:
+4. Running the Application (client):
    ```bash
    npm run dev
 
-5. Start the server:
+5. Start the server (server):
    ```bash
    npm start
-   
+
