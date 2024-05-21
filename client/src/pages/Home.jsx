@@ -11,7 +11,11 @@ const Home = () => {
       setModels(data);
       console.log(data);
     };
-    fetchModels();
+    try {
+      fetchModels();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
@@ -22,7 +26,7 @@ const Home = () => {
           key={model._id}
           className="flex flex-col justify-center items-center m-auto glassmorphism lg:h-screen h-[50vh] rounded-2xl md:py-8 my-6 lg:w-3/4"
         >
-          <h2>{model.name}</h2>
+          <h2 className="md:text-3xl font-black text-black">{model.name.toUpperCase()}</h2>
           <ModelViewer url={`http://localhost:5050/${model.fileUrl}`} />
         </div>
       ))}

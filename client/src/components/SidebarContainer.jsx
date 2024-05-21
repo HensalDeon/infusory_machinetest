@@ -27,7 +27,7 @@ const SidebarContainer = () => {
           icon={<UserCircle />}
           text={`Dashboard`}
           active={activeBar == "Dashboard"}
-          onClick={() => handleItemClick("Dashboard", "dashboard")}
+          onClick={() => handleItemClick("Dashboard", "/dashboard")}
         />
       </Sidebar>
     </>

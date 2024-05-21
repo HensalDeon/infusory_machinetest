@@ -11,7 +11,11 @@ const Dashboard = () => {
     formData.append("name", name);
     formData.append("file", file);
 
-    await uploadModel(formData);
+    try {
+      await uploadModel(formData);
+    } catch (error) {
+      console.log(error);
+    }
     setName("");
     setFile(null);
   };
@@ -44,7 +48,12 @@ const Dashboard = () => {
             required
           />
         </div>
-        <button type="submit" className="rounded-full bg-secondary px-6 text-white py-2 w-fit">Upload</button>
+        <button
+          type="submit"
+          className="rounded-full bg-secondary px-6 text-white py-2 w-fit"
+        >
+          Upload
+        </button>
       </form>
     </section>
   );

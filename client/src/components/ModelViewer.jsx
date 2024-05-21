@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Suspense, useRef } from "react";
+import CanvasLoader from "./Loader";
 
 const Model = ({ url }) => {
   const { scene } = useGLTF(url);
@@ -34,7 +35,7 @@ const ModelViewer = ({ url }) => {
     >
       <ambientLight intensity={1} />
       <directionalLight position={[20, 10, 10]} intensity={1.5} />
-      <Suspense fallback={"Loading..."}>
+      <Suspense fallback={<CanvasLoader />}>
         <Model url={url} />
       </Suspense>
       <OrbitControls enableZoom={true} />
