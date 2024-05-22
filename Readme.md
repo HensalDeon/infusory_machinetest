@@ -37,4 +37,4 @@
    ```bash
    npm start
 ### Live Demo
-[infusory-machinetest.vercel.app] (https://infusory-machinetest.vercel.app/)
+Check here - [infusory-machinetest.vercel.app](https://infusory-machinetest.vercel.app/)
